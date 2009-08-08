@@ -14,7 +14,7 @@
  * @author		JoungKyun.Kim <http://oops.org>
  * @copyright	1997-2009 OOPS.ORG
  * @license		BSD License
- * @version		CVS: $Id: oGetopt.php,v 1.2 2009-08-08 06:26:01 oops Exp $
+ * @version		CVS: $Id: oGetopt.php,v 1.3 2009-08-08 08:05:14 oops Exp $
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
  */
@@ -105,6 +105,8 @@ class oGetopt {
 
 	// {{{ public function exec ($argc, $argv, $optstrs)
 	/**
+	 * execute getopt
+	 *
 	 * @access public
 	 * @return string return short option.<br>
 	 *                If return false, end of getopt processing.
