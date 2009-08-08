@@ -14,7 +14,7 @@
  * @author		JoungKyun.Kim <http://oops.org>
  * @copyright	1997-2009 OOPS.ORG
  * @license		BSD License
- * @version		CVS: $Id: oGetopt.php,v 1.1.1.1 2009-08-07 22:54:42 oops Exp $
+ * @version		CVS: $Id: oGetopt.php,v 1.2 2009-08-08 06:26:01 oops Exp $
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
  */
@@ -77,6 +77,11 @@ class oGetopt {
 	 */
 	function __construct () {
 		self::init ();
+
+		$this->optcno = &self::$optcno;
+		$this->optarg = &self::$optarg;
+		$this->optcmd = &self::$optcmd;
+		$this->longopt = &self::$longopt;
 	}
 	// }}}
 
@@ -95,13 +100,6 @@ class oGetopt {
 		self::$optarg  = '';
 		self::$optcmd  = array ();
 		self::$longopt = (object) array ();
-
-		if ( is_object ($this) ) {
-			$this->optcno = &self::$optcno;
-			$this->optarg = &self::$optarg;
-			$this->optcmd = &self::$optcmd;
-			$this->longopt = &self::$longopt;
-		}
 	}
 	// }}}
 
