@@ -13,7 +13,7 @@
  * @author		JoungKyun.Kim <http://oops.org>
  * @copyright	1997-2009 OOPS.ORG
  * @license		BSD License
- * @version		CVS: $Id: test.php,v 1.1.1.1 2009-08-07 22:54:42 oops Exp $
+ * @version		CVS: $Id$
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
  */
