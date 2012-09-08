@@ -1,20 +1,16 @@
 <?php
 /**
- * Project:	oGetopt :: o_getopt of oops c library wrapping api
+ * Project:	oGetopt :: o_getopt of oops c library wrapping api<br>
  * File:	oGetopt.php
  *
- * PHP version 5
- *
- * Copyright (c) 1997-2009 JoungKyun.Kim
- *
- * LICENSE: BSD license
+ * Wrapping o_getopt on Oops C library
+ * This class is supported alternative getopt function.
  *
  * @category	Core
  * @package		oGetopt
  * @author		JoungKyun.Kim <http://oops.org>
- * @copyright	1997-2009 OOPS.ORG
- * @license		BSD License
- * @version		CVS: $Id$
+ * @copyright	(c) 2009 JoungKyun.Kim
+ * @version		$Id$
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
  */
@@ -23,7 +19,7 @@ require_once 'ePrint.php';
 
 /**
  * Base classes for oops getopt
- * @package		ePrint
+ * @package		oGetopt
  */
 class oGetopt {
 	// {{{ properties
