@@ -13,6 +13,8 @@
  * @version		$Id$
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
+ * @example     pear_oGetopt/test.php
+ * @filesource
  */
 
 require_once 'ePrint.php';
