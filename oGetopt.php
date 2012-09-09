@@ -6,6 +6,8 @@
  * Wrapping o_getopt on Oops C library
  * This class is supported alternative getopt function.
  *
+ * This project requires {@link ePrint pear.oops.org/ePrint} pear package
+ *
  * @category	Core
  * @package		oGetopt
  * @author		JoungKyun.Kim <http://oops.org>
@@ -17,13 +19,17 @@
  * @filesource
  */
 
+/**
+ * import ePrint class
+ * @see ePrint
+ */
 require_once 'ePrint.php';
 
 /**
  * Base classes for oops getopt
  * @package		oGetopt
  */
-class oGetopt {
+class oGetopt extends ePrint {
 	// {{{ properties
 	/**#@+
 	 * @access public
@@ -120,7 +126,7 @@ class oGetopt {
 			self::$optend = 0;
 		self::$optarg = '';
 
-		$errMark = ePrint::asPrintf ('white', _('ERROR'));
+		$errMark = self::asPrintf ('white', _('ERROR'));
 
 		while ( true ) {
 			if ( self::$gno == $argc )
@@ -134,14 +140,14 @@ class oGetopt {
 
 				$errArg = array ($errMark, $longname);
 				if ( ! ($opt = self::$longopt->$longname) ) {
-					ePrint::ePrintf (_("%s: option --%s don't support"), $errArg);
+					self::ePrintf (_("%s: option --%s don't support"), $errArg);
 					return null;
 				}
 
 				if ( preg_match ("/{$opt}:/", $optstrs) ) {
 					self::$optarg = self::$optarg ? self::$optarg : $argv[self::$gno + 1];
 					if ( ! trim (self::$optarg) ) {
-						ePrint::ePrintf (_('%s: option --%s must need values'), $errArg);
+						self::ePrintf (_('%s: option --%s must need values'), $errArg);
 						return null;
 					}
 
@@ -163,7 +169,7 @@ class oGetopt {
 						$nextArg = $argv[self::$gno + 1];
 
 						if ( preg_match ('/^-[a-z-]/i', $nextArg) ) {
-							ePrint::ePrintf (_('%s: option -%s must need option value'), $errArg);
+							self::ePrintf (_('%s: option -%s must need option value'), $errArg);
 							return null;
 						}
 
@@ -172,12 +178,12 @@ class oGetopt {
 					}
 
 					if ( ! trim (self::$optarg) ) {
-						ePrint::ePrintf (_("%s: option -%s must need option value"), $errArg);
+						self::ePrintf (_("%s: option -%s must need option value"), $errArg);
 						return null;
 					}
 				} else {
 					if ( $optvalue_c ) {
-						ePrint::ePrintf (_("%s: option -%s must have not any value"), $errArg);
+						self::ePrintf (_("%s: option -%s must have not any value"), $errArg);
 						return null;
 					}
 
@@ -193,7 +199,7 @@ class oGetopt {
 					}
 
 					if ( $_optok < 1 ) {
-						ePrint::ePrintf (_("%s: option -%s don't support"), $errArg);
+						self::ePrintf (_("%s: option -%s don't support"), $errArg);
 						return null;
 					}
 				}
