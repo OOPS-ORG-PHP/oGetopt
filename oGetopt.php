@@ -6,7 +6,8 @@
  * Wrapping o_getopt on Oops C library
  * This class is supported alternative getopt function.
  *
- * This project requires {@link ePrint pear.oops.org/ePrint} pear package
+ * This project requires {@link ePrint pear.oops.org/ePrint} pear
+ * package over 1.0.1
  *
  * @category	Core
  * @package		oGetopt
