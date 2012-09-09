@@ -40,7 +40,7 @@ oGetopt::$longopt = (object) array (
 
 $first = false;
 $third = false;
-while ( ($opt = oGetopt::exec ($argc, $argv, "f:st")) !== false ) {
+while ( ($opt = oGetopt::exec ($argc, $argv, "f:s:t")) !== false ) {
 	switch ( $opt ) {
 		case 'f' :
 			$first = oGetopt::$optarg;
