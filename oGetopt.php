@@ -1,36 +1,31 @@
 <?php
 /**
- * Project:	oGetopt :: o_getopt of oops c library wrapping api<br>
+ * Project:	oGetopt :: o_getopt of oops c library wrapping api
  * File:	oGetopt.php
  *
- * Wrapping o_getopt on Oops C library
- * This class is supported alternative getopt function.
+ * PHP version 5
  *
- * This project requires {@link ePrint pear.oops.org/ePrint} pear
- * package over 1.0.1
+ * Copyright (c) 1997-2009 JoungKyun.Kim
+ *
+ * LICENSE: BSD license
  *
  * @category	Core
  * @package		oGetopt
  * @author		JoungKyun.Kim <http://oops.org>
- * @copyright	(c) 2009 JoungKyun.Kim
- * @version		$Id$
+ * @copyright	1997-2009 OOPS.ORG
+ * @license		BSD License
+ * @version		CVS: $Id: oGetopt.php,v 1.1.1.1 2009-08-07 22:54:42 oops Exp $
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
- * @example     pear_oGetopt/test.php
- * @filesource
  */
 
-/**
- * import ePrint class
- * @see ePrint
- */
 require_once 'ePrint.php';
 
 /**
  * Base classes for oops getopt
- * @package		oGetopt
+ * @package		ePrint
  */
-class oGetopt extends ePrint {
+class oGetopt {
 	// {{{ properties
 	/**#@+
 	 * @access public
@@ -82,11 +77,6 @@ class oGetopt extends ePrint {
 	 */
 	function __construct () {
 		self::init ();
-
-		$this->optcno = &self::$optcno;
-		$this->optarg = &self::$optarg;
-		$this->optcmd = &self::$optcmd;
-		$this->longopt = &self::$longopt;
 	}
 	// }}}
 
@@ -105,13 +95,18 @@ class oGetopt extends ePrint {
 		self::$optarg  = '';
 		self::$optcmd  = array ();
 		self::$longopt = (object) array ();
+
+		if ( is_object ($this) ) {
+			$this->optcno = &self::$optcno;
+			$this->optarg = &self::$optarg;
+			$this->optcmd = &self::$optcmd;
+			$this->longopt = &self::$longopt;
+		}
 	}
 	// }}}
 
 	// {{{ public function exec ($argc, $argv, $optstrs)
 	/**
-	 * execute getopt
-	 *
 	 * @access public
 	 * @return string return short option.<br>
 	 *                If return false, end of getopt processing.
@@ -127,7 +122,7 @@ class oGetopt extends ePrint {
 			self::$optend = 0;
 		self::$optarg = '';
 
-		$errMark = self::asPrintf ('white', _('ERROR'));
+		$errMark = ePrint::asPrintf ('white', _('ERROR'));
 
 		while ( true ) {
 			if ( self::$gno == $argc )
@@ -141,14 +136,14 @@ class oGetopt extends ePrint {
 
 				$errArg = array ($errMark, $longname);
 				if ( ! ($opt = self::$longopt->$longname) ) {
-					self::ePrintf (_("%s: option --%s don't support"), $errArg);
+					ePrint::ePrintf (_("%s: option --%s don't support"), $errArg);
 					return null;
 				}
 
 				if ( preg_match ("/{$opt}:/", $optstrs) ) {
 					self::$optarg = self::$optarg ? self::$optarg : $argv[self::$gno + 1];
 					if ( ! trim (self::$optarg) ) {
-						self::ePrintf (_('%s: option --%s must need values'), $errArg);
+						ePrint::ePrintf (_('%s: option --%s must need values'), $errArg);
 						return null;
 					}
 
@@ -170,7 +165,7 @@ class oGetopt extends ePrint {
 						$nextArg = $argv[self::$gno + 1];
 
 						if ( preg_match ('/^-[a-z-]/i', $nextArg) ) {
-							self::ePrintf (_('%s: option -%s must need option value'), $errArg);
+							ePrint::ePrintf (_('%s: option -%s must need option value'), $errArg);
 							return null;
 						}
 
@@ -179,12 +174,12 @@ class oGetopt extends ePrint {
 					}
 
 					if ( ! trim (self::$optarg) ) {
-						self::ePrintf (_("%s: option -%s must need option value"), $errArg);
+						ePrint::ePrintf (_("%s: option -%s must need option value"), $errArg);
 						return null;
 					}
 				} else {
 					if ( $optvalue_c ) {
-						self::ePrintf (_("%s: option -%s must have not any value"), $errArg);
+						ePrint::ePrintf (_("%s: option -%s must have not any value"), $errArg);
 						return null;
 					}
 
@@ -200,7 +195,7 @@ class oGetopt extends ePrint {
 					}
 
 					if ( $_optok < 1 ) {
-						self::ePrintf (_("%s: option -%s don't support"), $errArg);
+						ePrint::ePrintf (_("%s: option -%s don't support"), $errArg);
 						return null;
 					}
 				}

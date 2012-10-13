@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id$
+# $Id: pack.sh,v 1.1.1.1 2009-08-07 22:54:42 oops Exp $
 
 cp -af package.xml.tmpl package.xml
 list=$(grep "md5sum" ./package.xml | sed 's/.*"@\|@".*//g')

@@ -13,7 +13,7 @@
  * @author		JoungKyun.Kim <http://oops.org>
  * @copyright	1997-2009 OOPS.ORG
  * @license		BSD License
- * @version		CVS: $Id$
+ * @version		CVS: $Id: test.php,v 1.1.1.1 2009-08-07 22:54:42 oops Exp $
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
  */
@@ -40,7 +40,7 @@ oGetopt::$longopt = (object) array (
 
 $first = false;
 $third = false;
-while ( ($opt = oGetopt::exec ($argc, $argv, "f:s:t")) !== false ) {
+while ( ($opt = oGetopt::exec ($argc, $argv, "f:st")) !== false ) {
 	switch ( $opt ) {
 		case 'f' :
 			$first = oGetopt::$optarg;
