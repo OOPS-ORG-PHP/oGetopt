@@ -1,22 +1,22 @@
 <?php
 /**
- * Project:	oGetopt :: o_getopt of oops c library wrapping api<br>
- * File:	oGetopt.php
+ * Project:	oGetopt :: OOPS C library (olibc)의 o_getopt wrapping api<br>
+ * File:	oGetopt.php<br>
+ * Dependency: {@link ePrint} over 1.0.1
  *
- * Wrapping o_getopt on Oops C library
- * This class is supported alternative getopt function.
+ * OOPS C library의 o_getopt wrapping Class
+ * 이 패키지는 getopt function의 대안을 제공한다.
  *
- * This project requires {@link ePrint pear.oops.org/ePrint} pear
- * package over 1.0.1
- *
+ * 이 패키지는 {@link ePrint} 1.0.1 이상 버전이 필요하다.
+ * 
  * @category	Core
  * @package		oGetopt
  * @author		JoungKyun.Kim <http://oops.org>
- * @copyright	(c) 2009 JoungKyun.Kim
+ * @copyright	(c) 2012 JoungKyun.Kim
  * @version		$Id$
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
- * @example     pear_oGetopt/test.php
+ * @example     pear_oGetopt/test.php 샘플 예제 코드
  * @filesource
  */
 
@@ -36,22 +36,22 @@ class oGetopt extends ePrint {
 	 * @access public
 	 */
 	/**
-	 * Current option value
+	 * 현재 옵션 값
 	 * @var string
 	 */
 	static public $optarg;
 	/**
-	 * Arrays of command line arguments that is not option
+	 * 옵션이 아닌 명령행 인자가 할당되는 배열
 	 * @var array
 	 */
 	static public $optcmd;
 	/**
-	 * long option mapping table
+	 * long 옵션 매핑 테이블
 	 * @var object
 	 */
 	static public $longopt;
 	/**
-	 * Number of command line argument that is not option
+	 * 옵션이 아닌 명령행 인자의 수
 	 * @var integer
 	 */
 	static public $optcno;
@@ -92,7 +92,7 @@ class oGetopt extends ePrint {
 
 	// {{{ public function init ()
 	/**
-	 * Initialize order of arguments
+	 * 인자의 순서를 초기화
 	 *
 	 * @access public
 	 * @return void
@@ -110,15 +110,19 @@ class oGetopt extends ePrint {
 
 	// {{{ public function exec ($argc, $argv, $optstrs)
 	/**
-	 * execute getopt
+	 * getopt 실행
 	 *
 	 * @access public
-	 * @return string return short option.<br>
-	 *                If return false, end of getopt processing.
-	 *                If wrong option, print error message and return null
-	 * @param  integer Number of command line arguments
-	 * @param  array   Command line arguments
-	 * @param  string  Option format. See also 'man 3 getopt'
+	 * @return string short option을 반환.
+	 *
+	 *                false를 반환할 경우, getopt 수행이 완료 되었음을 의미.
+	 *                잘못된 옵션이 있을 경우, 에러 메시지 출력 후 null 반환.
+	 *
+	 * @param  integer 명령행 인자 수
+	 * @param  array   명령행 인자 배열
+	 * @param  string  옵션 형식.
+	 *                 '{@link http://man.kldp.net/wiki/ManPage/getopt.3 man 3 getopt}'
+	 *                 참조
 	 */
 	public function exec ($argc, $argv, $optstrs) {
 		if ( self::$gno < 0 ) self::$gno = 1;
