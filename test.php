@@ -71,7 +71,7 @@ $getopt = new oGetopt;
 # Initialized getopt order variables
 #$getopt->init ();
 
-$getopt->longopt = (object) array (
+oGetopt::$longopt = (object) array (
 	'first'  => 'f',
 	'second' => 's',
 	'third'  => 't',
@@ -85,10 +85,10 @@ while ( ($opt = $getopt->exec ($argc, $argv, "fs:t:")) !== false ) {
 			$first = true;
 			break;
 		case 's' :
-			$second = $getopt->optarg;
+			$second = oGetopt::$optarg;
 			break;
 		case 't' :
-			$third = $getopt->optarg;
+			$third = oGetopt::$optarg;
 			break;
 		default :
 			exit (1);
@@ -100,9 +100,9 @@ echo "Result:\n";
 echo "  Option f (flag  )  => $first\n";
 echo "  Option s (value )  => $second\n";
 echo "  Option t (value )  => $third\n";
-echo "  Number of \$optcmd => " . $getopt->optcno . "\n";
+echo "  Number of \$optcmd => " . oGetopt::$optcno . "\n";
 echo "Print_r (oGetopt::\$optcmd):\n";
-print_r ($getopt->optcmd);
+print_r (oGetopt::$optcmd);
 
 echo "#############################################################\n";
 echo "\n";
