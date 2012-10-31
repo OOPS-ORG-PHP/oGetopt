@@ -82,11 +82,6 @@ class oGetopt extends ePrint {
 	 */
 	function __construct () {
 		self::init ();
-
-		$this->optcno = &self::$optcno;
-		$this->optarg = &self::$optarg;
-		$this->optcmd = &self::$optcmd;
-		$this->longopt = &self::$longopt;
 	}
 	// }}}
 
@@ -97,14 +92,14 @@ class oGetopt extends ePrint {
 	 * @access public
 	 * @return void
 	 */
-	public function init () {
+	static public function init () {
 		self::$gno     = -1;
 		self::$optcno  = -1;
 		self::$optend  = -1;
 
 		self::$optarg  = '';
 		self::$optcmd  = array ();
-		self::$longopt = (object) array ();
+		self::$longopt = new stdClass;
 	}
 	// }}}
 
@@ -124,14 +119,14 @@ class oGetopt extends ePrint {
 	 *                 '{@link http://man.kldp.net/wiki/ManPage/getopt.3 man 3 getopt}'
 	 *                 참조
 	 */
-	public function exec ($argc, $argv, $optstrs) {
+	static public function exec ($argc, $argv, $optstrs) {
 		if ( self::$gno < 0 ) self::$gno = 1;
 		if ( self::$optcno < 0 ) self::$optcno = 0;
 		if ( ! isset (self::$optcno) || self::$optend < 0 )
 			self::$optend = 0;
 		self::$optarg = '';
 
-		$errMark = self::asPrintf ('white', _('ERROR'));
+		$errMark = parent::asPrintf ('white', _('ERROR'));
 
 		while ( true ) {
 			if ( self::$gno == $argc )
@@ -145,14 +140,14 @@ class oGetopt extends ePrint {
 
 				$errArg = array ($errMark, $longname);
 				if ( ! ($opt = self::$longopt->$longname) ) {
-					self::ePrintf (_("%s: option --%s don't support"), $errArg);
+					parent::ePrintf (_("%s: option --%s don't support"), $errArg);
 					return null;
 				}
 
 				if ( preg_match ("/{$opt}:/", $optstrs) ) {
 					self::$optarg = self::$optarg ? self::$optarg : $argv[self::$gno + 1];
 					if ( ! trim (self::$optarg) ) {
-						self::ePrintf (_('%s: option --%s must need values'), $errArg);
+						parent::ePrintf (_('%s: option --%s must need values'), $errArg);
 						return null;
 					}
 
@@ -174,7 +169,7 @@ class oGetopt extends ePrint {
 						$nextArg = $argv[self::$gno + 1];
 
 						if ( preg_match ('/^-[a-z-]/i', $nextArg) ) {
-							self::ePrintf (_('%s: option -%s must need option value'), $errArg);
+							parent::ePrintf (_('%s: option -%s must need option value'), $errArg);
 							return null;
 						}
 
@@ -183,12 +178,12 @@ class oGetopt extends ePrint {
 					}
 
 					if ( ! trim (self::$optarg) ) {
-						self::ePrintf (_("%s: option -%s must need option value"), $errArg);
+						parent::ePrintf (_("%s: option -%s must need option value"), $errArg);
 						return null;
 					}
 				} else {
 					if ( $optvalue_c ) {
-						self::ePrintf (_("%s: option -%s must have not any value"), $errArg);
+						parent::ePrintf (_("%s: option -%s must have not any value"), $errArg);
 						return null;
 					}
 
@@ -204,7 +199,7 @@ class oGetopt extends ePrint {
 					}
 
 					if ( $_optok < 1 ) {
-						self::ePrintf (_("%s: option -%s don't support"), $errArg);
+						parent::ePrintf (_("%s: option -%s don't support"), $errArg);
 						return null;
 					}
 				}
