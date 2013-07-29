@@ -47,7 +47,7 @@ class oGetopt extends ePrint {
 	static public $optcmd;
 	/**
 	 * long 옵션 매핑 테이블
-	 * @var object
+	 * @var stdClass
 	 */
 	static public $longopt;
 	/**
