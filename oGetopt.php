@@ -26,6 +26,10 @@
  */
 require_once 'ePrint.php';
 
+if ( ! extension_loaded ('gettext') ) {
+	function _($s) { return $s; }
+}
+
 /**
  * Base classes for oops getopt
  * @package		oGetopt
