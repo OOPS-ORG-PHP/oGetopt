@@ -12,9 +12,9 @@
 		<active>yes</active>
 	</lead>
 	<date>2014-01-25</date>
-	<time>18:27:08</time>
+	<time>18:30:10</time>
 	<version>
-		<release>1.0.2</release>
+		<release>1.0.3</release>
 		<api>1.0.0</api>
 	</version>
 	<stability>
@@ -22,7 +22,7 @@
 		<api>stable</api>
 	</stability>
 	<license uri="http://www.opensource.org/licenses/bsd-license.php">BSD</license>
-	<notes>* fixed undeclare _() error
+	<notes>
 </notes>
 	<contents>
 		<dir name="/">
@@ -46,6 +46,20 @@
 	</dependencies>
 	<phprelease />
 	<changelog>
+		<release>
+			<version>
+				<release>1.0.3</release>
+				<api>1.0.0</api>
+			</version>
+			<stability>
+				<release>stable</release>
+				<api>stable</api>
+			</stability>
+			<date>2014-01-25</date>
+			<license uri="http://www.opensource.org/licenses/bsd-license.php">BSD</license>
+			<notes>
+</notes>
+		</release>
 		<release>
 			<version>
 				<release>1.0.2</release>
