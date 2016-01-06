@@ -86,6 +86,13 @@ class oGetopt extends ePrint {
 	 */
 	function __construct () {
 		self::init ();
+
+		$this->gno     = &self::$gno;
+		$this->optcno  = &self::$optcno;
+		$this->optend  = &self::$optend;
+		$this->optarg  = &self::$optarg;
+		$this->optcmd  = &self::$optcmd;
+		$this->longopt = &self::$longopt;
 	}
 	// }}}
 
