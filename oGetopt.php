@@ -13,7 +13,7 @@
  * @package		oGetopt
  * @author		JoungKyun.Kim <http://oops.org>
  * @copyright	(c) 2016 JoungKyun.Kim
- * @version		$Id$
+ * @version		$Id: oGetopt.php 25 2016-01-06 21:24:43Z oops $
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
  * @example     pear_oGetopt/test.php 샘플 예제 코드
