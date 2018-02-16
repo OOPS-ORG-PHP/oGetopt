@@ -114,7 +114,7 @@
 			<date>2009-08-08</date>
 			<license uri="http://www.opensource.org/licenses/bsd-license.php">BSD</license>
 			<notes>* release 1.0.0
-* forked pear_eSystem::getopt:
+* forked eSystem::getopt:
 </notes>
 		</release>
 	</changelog>

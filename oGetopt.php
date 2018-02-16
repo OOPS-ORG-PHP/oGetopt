@@ -12,11 +12,10 @@
  * @category	Core
  * @package		oGetopt
  * @author		JoungKyun.Kim <http://oops.org>
- * @copyright	(c) 2016 JoungKyun.Kim
- * @version		$Id$
+ * @copyright	(c) 2018, OOPS.org
  * @link		http://pear.oops.org/package/oGetopt
  * @since		File available since relase 1.0.0
- * @example     pear_oGetopt/test.php 샘플 예제 코드
+ * @example     oGetopt/test.php 샘플 예제 코드
  * @filesource
  */
 
